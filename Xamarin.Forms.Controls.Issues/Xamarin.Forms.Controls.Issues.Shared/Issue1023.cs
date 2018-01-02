@@ -26,19 +26,19 @@ namespace Xamarin.Forms.Controls.Issues
 		{
 			for (var n = 0; n < 10; n++)
 			{
-				RunningApp.WaitForElement(q => q.Marked("Push"));
-				RunningApp.Tap(q => q.Marked("Push"));
+				RunningApp.WaitForElement(q => q.Text("Push"));
+				RunningApp.Tap(q => q.Text("Push"));
 
-				RunningApp.WaitForElement(q => q.Marked("ListView"));
+				RunningApp.WaitForElement(q => q.Text("ListView"));
 				RunningApp.Back();
 			}
 
 			// At this point, the counter can be any value, but it's most likely not zero.
 			// Invoking GC once is enough to clean up all garbage data and set counter to zero
-			RunningApp.WaitForElement(q => q.Marked("GC"));
-			RunningApp.Tap(q => q.Marked("GC"));
+			RunningApp.WaitForElement(q => q.Text("GC"));
+			RunningApp.Tap(q => q.MarkedTextGC"));
 
-			RunningApp.WaitForElement(q => q.Marked("Counter: 0"));
+			RunningApp.WaitForElement(q => q.Text("Counter: 0"));
 		}
 #endif
 	}
